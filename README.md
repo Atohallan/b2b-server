@@ -5,7 +5,7 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+  <p align="center">A progressive <a href="https://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -34,6 +34,15 @@
 
 ```bash
 $ npm install
+```
+
+## Add API Key
+- Copy API Key from your account @ [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
+- Create a file at the root of the project named `.env`
+- Add the following to the `.env` file and paste your API key after the equal sign:
+
+```bash
+OPENAI_API_KEY=
 ```
 
 ## Running the app
