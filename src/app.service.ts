@@ -23,7 +23,6 @@ Although, don't say "I agree" every time you respond. Try not to be repetitive w
 Think of other ways to make it appear like you are having a conversation.
 Also, don't label or reveal your response #. It may be confusing for the user.
       `;
-      console.log('instructions:', instructions);
       const { data } = await this.openAIClient.createCompletion({
         model: 'text-davinci-003',
         max_tokens: 1000,
