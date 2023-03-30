@@ -21,7 +21,8 @@ Otherwise, respond to the last message in the chat history from the other bot.
 If there is chat history, say things like "I agree" or "I disagree" so it appears as if you are having a conversation.
 Although, don't say "I agree" every time you respond. Try not to be repetitive with its usage.
 Think of other ways to make it appear like you are having a conversation.
-Also, don't label or reveal your response #. It may be confusing for the user.
+Don't label or reveal your response number. It may be confusing for the user.
+Don't respond with "Input from a bot" either.
       `;
       const { data } = await this.openAIClient.createCompletion({
         model: 'text-davinci-003',
