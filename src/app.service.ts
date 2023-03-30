@@ -5,13 +5,26 @@ import { OpenAIClient } from '@platohq/nestjs-openai';
 export class AppService {
   constructor(private readonly openAIClient: OpenAIClient) {}
 
-  async createCompletion(prompt: string) {
+  async createCompletion(userInput: string) {
     try {
+      const instructions = `
+        A user has asked a question or asked for some sort of explanation.
+        You are having a conversation with another chat bot. 
+        You will expand upon things the other chat bot says to help the user with their question.
+        You can disagree, agree, and/or add alternatives if you wish.
+        The following question and chat history (if any) are as follows.
+        User input and chat history (if any) begins here:
+        ${userInput}
+        User input and chat history (if any) ended. Now you will respond.
+        If you just received a single question or request, then answer it normally.
+        Otherwise, respond to the last message in the chat history from the other bot.
+        If there is chat history, say things like "I agree" or "I disagree" so it appears as if you are having a conversation.
+        `;
       const { data } = await this.openAIClient.createCompletion({
         model: 'text-davinci-003',
         max_tokens: 1000,
         temperature: 0.8,
-        prompt,
+        prompt: instructions,
       });
 
       return data;
