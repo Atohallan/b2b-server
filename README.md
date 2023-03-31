@@ -16,11 +16,12 @@ $ npm install
 - Copy API Key from your account @ [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
 - Create a file at the root of the project named `.env`
 - Add the following to the `.env` file and paste your values after the equal signs
-- Locally, `CLIENT_ORIGIN` will be `http://localhost:5173` and `PORT` will be `3000`
+- Locally, the `CLIENT_ORIGIN` variables will both be `http://localhost:5173` and `PORT` will be `3000`
 
 ```bash
 OPENAI_API_KEY=
 CLIENT_ORIGIN=http://localhost:5173
+CLIENT_ORIGIN_2=http://localhost:5173
 PORT=3000
 ```
 
