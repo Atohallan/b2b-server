@@ -6,7 +6,7 @@ import {
 } from 'openai';
 
 @Injectable()
-export class AppService {
+export class OpenAIService {
   constructor(private readonly openAIClient: OpenAIClient) {
   }
 

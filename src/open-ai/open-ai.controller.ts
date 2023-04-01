@@ -1,5 +1,5 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import { AppService } from './app.service';
+import { OpenAIService } from './open-ai.service';
 import {
   ChatCompletionRequestMessage,
   CreateChatCompletionResponse,
@@ -7,21 +7,21 @@ import {
   CreateModerationResponse,
 } from 'openai';
 
-@Controller('api')
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+@Controller('api/open-ai')
+export class OpenAIController {
+  constructor(private readonly openAIService: OpenAIService) {}
 
   @Post('generate')
   createCompletion(
     @Body('input') input: ChatCompletionRequestMessage[],
   ): Promise<CreateChatCompletionResponse> {
-    return this.appService.createChatCompletion(input);
+    return this.openAIService.createChatCompletion(input);
   }
 
   @Post('moderate')
   createModeration(
     @Body('input') input: CreateModerationRequestInput,
   ): Promise<CreateModerationResponse> {
-    return this.appService.createModeration(input);
+    return this.openAIService.createModeration(input);
   }
 }
