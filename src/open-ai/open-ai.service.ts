@@ -7,8 +7,7 @@ import {
 
 @Injectable()
 export class OpenAIService {
-  constructor(private readonly openAIClient: OpenAIClient) {
-  }
+  constructor(private readonly openAIClient: OpenAIClient) {}
 
   async createChatCompletion(messages: ChatCompletionRequestMessage[]) {
     try {
