@@ -6,12 +6,12 @@ import axios from 'axios';
 export class AI21Service {
   async createChatCompletion(messages: ChatCompletionRequestMessage[]) {
     try {
-      console.log('Messages:', JSON.stringify(messages));
+      console.log('Messages:', messages);
       const API_KEY = process.env.AI21_API_KEY;
-      return axios.post(
-        'https://api-stage.ai21.com/studio/v1/j2-grande-instruct/complete',
+      return await axios.post(
+        'https://api.ai21.com/studio/v1/j2-grande-instruct/complete',
         {
-          prompt: 'Write a tweet about the future of NLP',
+          prompt: 'How are you doing today?',
           numResults: 1,
           maxTokens: 1000,
           temperature: 0.8,
