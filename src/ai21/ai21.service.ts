@@ -1,25 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { ChatCompletionRequestMessage } from 'openai';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom, map, Observable } from 'rxjs';
 
 @Injectable()
 export class AI21Service {
   constructor(private readonly httpService: HttpService) {}
-  async createChatCompletion(
-    messages: ChatCompletionRequestMessage[],
-  ): Promise<Observable<object>> {
+  async createChatCompletion(messages: string): Promise<Observable<object>> {
     try {
-      console.log('Messages:', messages);
+      console.log('messages:', messages);
       const API_KEY = process.env.AI21_API_KEY;
       return await lastValueFrom(
         this.httpService
           .post(
-            'https://api.ai21.com/studio/v1/j2-grande/complete',
+            'https://api.ai21.com/studio/v1/j2-jumbo-instruct/complete',
             {
-              prompt: 'How are you doing, bot?',
+              prompt: messages,
               numResults: 1,
-              maxTokens: 500,
+              maxTokens: 250,
               temperature: 0.8,
               minTokens: 0,
               topP: 1,
@@ -53,7 +50,7 @@ export class AI21Service {
               headers: {
                 Authorization: `Bearer ${API_KEY}`,
                 'Content-Type': 'application/json',
-                accept: 'application/json',
+                Accept: 'application/json',
               },
             },
           )
