@@ -7,7 +7,6 @@ export class AI21Service {
   constructor(private readonly httpService: HttpService) {}
   async createChatCompletion(messages: string): Promise<Observable<object>> {
     try {
-      console.log('messages:', messages);
       const API_KEY = process.env.AI21_API_KEY;
       return await lastValueFrom(
         this.httpService
@@ -16,7 +15,7 @@ export class AI21Service {
             {
               prompt: messages,
               numResults: 1,
-              maxTokens: 250,
+              maxTokens: 500,
               temperature: 0.8,
               minTokens: 0,
               topP: 1,

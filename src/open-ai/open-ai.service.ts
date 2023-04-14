@@ -11,7 +11,6 @@ export class OpenAIService {
 
   async createChatCompletion(messages: ChatCompletionRequestMessage[]) {
     try {
-      console.log('messages:', messages);
       const { data } = await this.openAIClient.createChatCompletion({
         model: 'gpt-3.5-turbo',
         max_tokens: 1000,
